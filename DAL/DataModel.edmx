@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StockTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TABLE_CATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TABLE_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TABLE_PRODUCT">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="StockAmount" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TABLE_SALES">
+          <Key>
+            <PropertyRef Name="SalesID" />
+          </Key>
+          <Property Name="SalesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductSalesAmount" Type="int" Nullable="false" />
+          <Property Name="ProductSalesPrice" Type="int" Nullable="false" />
+          <Property Name="DateSales" Type="date" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DateDeleted" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StockTrackerModelStoreContainer">
+          <EntitySet Name="TABLE_CATEGORY" EntityType="Self.TABLE_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TABLE_CUSTOMER" EntityType="Self.TABLE_CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TABLE_PRODUCT" EntityType="Self.TABLE_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TABLE_SALES" EntityType="Self.TABLE_SALES" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StockTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TABLE_CATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateDeleted" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="TABLE_CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateDeleted" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="TABLE_PRODUCT">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="StockAmount" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateDeleted" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="TABLE_SALES">
+          <Key>
+            <PropertyRef Name="SalesID" />
+          </Key>
+          <Property Name="SalesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductSalesAmount" Type="Int32" Nullable="false" />
+          <Property Name="ProductSalesPrice" Type="Int32" Nullable="false" />
+          <Property Name="DateSales" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DateDeleted" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="StockTrackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TABLE_CATEGORY" EntityType="Self.TABLE_CATEGORY" />
+          <EntitySet Name="TABLE_CUSTOMER" EntityType="Self.TABLE_CUSTOMER" />
+          <EntitySet Name="TABLE_PRODUCT" EntityType="Self.TABLE_PRODUCT" />
+          <EntitySet Name="TABLE_SALES" EntityType="Self.TABLE_SALES" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StockTrackerModelStoreContainer" CdmEntityContainer="StockTrackerEntities">
+          <EntitySetMapping Name="TABLE_CATEGORY">
+            <EntityTypeMapping TypeName="StockTrackerModel.TABLE_CATEGORY">
+              <MappingFragment StoreEntitySet="TABLE_CATEGORY">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TABLE_CUSTOMER">
+            <EntityTypeMapping TypeName="StockTrackerModel.TABLE_CUSTOMER">
+              <MappingFragment StoreEntitySet="TABLE_CUSTOMER">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TABLE_PRODUCT">
+            <EntityTypeMapping TypeName="StockTrackerModel.TABLE_PRODUCT">
+              <MappingFragment StoreEntitySet="TABLE_PRODUCT">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="StockAmount" ColumnName="StockAmount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TABLE_SALES">
+            <EntityTypeMapping TypeName="StockTrackerModel.TABLE_SALES">
+              <MappingFragment StoreEntitySet="TABLE_SALES">
+                <ScalarProperty Name="SalesID" ColumnName="SalesID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductSalesAmount" ColumnName="ProductSalesAmount" />
+                <ScalarProperty Name="ProductSalesPrice" ColumnName="ProductSalesPrice" />
+                <ScalarProperty Name="DateSales" ColumnName="DateSales" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
